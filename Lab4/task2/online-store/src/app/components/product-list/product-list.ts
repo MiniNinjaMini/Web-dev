@@ -1,15 +1,16 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Product } from '../../models/product.model';
-import { ProductItem } from '../product-item/product-item'; 
+import { ProductItem } from '../product-item/product-item';
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [ProductItem],
+  imports: [CommonModule, ProductItem],
   templateUrl: './product-list.html',
-  styleUrl: './product-list.css'
+  styleUrls: ['./product-list.css']
 })
-export class ProductListComponent { 
+export class ProductListComponent {
   @Input() products: Product[] = [];
   removeItem(productId: number) {
   this.products = this.products.filter(item => item.id !== productId);

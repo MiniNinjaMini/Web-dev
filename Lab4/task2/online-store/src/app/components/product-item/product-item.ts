@@ -5,11 +5,11 @@ import { Product } from '../../models/product.model';
   selector: 'app-product-item',
   standalone: true,
   templateUrl: './product-item.html',
-  styleUrl: './product-item.css'
+  styleUrls: ['./product-item.css']
 })
-export class ProductItem { 
-  @Input() product!: Product; 
-  @Output() remove = new EventEmitter<number>(); 
+export class ProductItem {
+  @Input() product!: Product;
+  @Output() remove = new EventEmitter<number>();
 
   removeMe() {
     this.remove.emit(this.product.id);
