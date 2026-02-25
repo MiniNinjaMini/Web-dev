@@ -1,11 +1,11 @@
-<div class="card">
+<div class="card" (click)="openLink()" role="link">
   <img [src]="product.images[currentImageIndex]" [alt]="product.name" class="product-image">
 
   <div class="thumbnail-container">
-    <img 
-      *ngFor="let img of product.images; let i = index" 
-      [src]="img" 
-      (click)="changeImage(i)"
+    <img
+      *ngFor="let img of product.images; let i = index"
+      [src]="img"
+      (click)="changeImage(i); $event.stopPropagation()"
       [class.active-thumb]="i === currentImageIndex"
       class="thumb">
   </div>
@@ -16,15 +16,18 @@
   <p class="rating">⭐ {{ product.rating }}</p>
 
   <div class="actions">
-    <a [href]="product.link" target="_blank" rel="noopener noreferrer" class="buy-btn">Открыть Kaspi</a>
-    
-    <div class="share-box">
-      <button (click)="shareWhatsApp()" title="WhatsApp">🟢</button>
-      <button (click)="shareTelegram()" title="Telegram">🔵</button>
-    </div>
+    <a [href]="product.link" target="_blank" rel="noopener noreferrer" class="buy-btn" (click)="$event.stopPropagation()">Открыть Kaspi</a>
 
-    <button (click)="onToggleFavorite()" [class.active]="product.isFavorite">
-      {{ product.isFavorite ? '❤️' : '🤍' }}
+    <div class="share-box">
+      <button (click)="shareWhatsApp($event)" title="WhatsApp">🟢</button>
+      <button (click)="shareTelegram($event)" title="Telegram">🔵</button>
+    </div>
+    <button class="like-btn" (click)="incrementLikes($event)" title="Like">
+      ❤️ {{ product.likes }}
+    </button>
+
+    <button class="delete-btn" (click)="removeThis($event)" title="Удалить">
+      🗑️
     </button>
   </div>
 </div>

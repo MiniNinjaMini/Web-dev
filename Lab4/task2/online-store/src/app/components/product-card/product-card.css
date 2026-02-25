@@ -1,5 +1,61 @@
 /* ... твои старые стили ... */
 
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Ensure card fills grid cell and images keep consistent size */
+.card {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  border-radius: 6px;
+}
+
+.card a,
+.card button {
+  pointer-events: auto;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.buy-btn {
+  position: relative;
+  z-index: 2;
+  text-decoration: none;
+  color: inherit;
+  padding: 6px 10px;
+  border-radius: 4px;
+  background: #1976d2;
+  color: #fff;
+}
+
+.share-box button {
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
 .thumbnail-container {
   display: flex;
   gap: 5px;
