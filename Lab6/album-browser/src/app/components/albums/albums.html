@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>Albums</h1>
+
+  @if (errorMessage) {
+    <div class="error-message">⚠️ {{ errorMessage }}</div>
+  }
+
+  @if (isLoading) {
+    <div class="loader">Loading albums... Please wait.</div>
+  } @else {
+    @if (albums.length === 0) {
+      <p class="empty-state">No albums available.</p>
+    } @else {
+      <div class="album-grid">
+        @for (album of albums; track album.id) {
+          <div class="album-card">
+            <div class="album-info">
+              <span class="id-badge">{{ album.id }}</span>
+              <a [routerLink]="['/albums', album.id]" class="album-title">
+                {{ album.title }}
+              </a>
+            </div>
+
+            <button class="btn-delete" (click)="deleteAlbum(album.id)">
+              🗑️ Delete
+            </button>
+          </div>
+        }
+      </div>
+    }
+  }
+</div>

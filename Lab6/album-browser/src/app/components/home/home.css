@@ -1,0 +1,22 @@
+.home-container {
+  padding: 40px;
+  text-align: center;
+}
+
+.home-container h1 {
+  margin-bottom: 1rem;
+}
+
+.home-container button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.home-container button:hover {
+  background-color: #0056b3;
+}
