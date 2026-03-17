@@ -1,44 +1,41 @@
-class Vehicle:
-    def __init__(self, brand, model, year):
-        self.brand = brand
-        self.model = model
-        self.year = year
+class Character:
+    def __init__(self, name, health, level):
+        self.name = name
+        self.health = health
+        self.level = level
 
-    def start(self):
-        return f"{self.brand} {self.model} is starting."
+    def attack(self):
+        return f"{self.name} attacks!"
 
-    def stop(self):
-        return f"{self.brand} {self.model} has stopped."
-
-    def __str__(self):
-        return f"{self.year} {self.brand} {self.model}"
-
-
-class Car(Vehicle):
-    def __init__(self, brand, model, year, doors):
-        super().__init__(brand, model, year)
-        self.doors = doors
-
-    def start(self):
-        return f"{self.brand} {self.model} (Car) engine is roaring to life!"
-
-    def open_trunk(self):
-        return f"{self.brand} {self.model} trunk is now open."
+    def take_damage(self, damage):
+        self.health -= damage
+        return f"{self.name} takes {damage} damage. HP: {self.health}"
 
     def __str__(self):
-        return f"{super().__str__()} with {self.doors} doors"
+        return f"{self.name} (Level {self.level}, HP: {self.health})"
 
 
-class Motorcycle(Vehicle):
-    def __init__(self, brand, model, year, type_motorcycle):
-        super().__init__(brand, model, year)
-        self.type_motorcycle = type_motorcycle
+# 👊 Warrior
+class Warrior(Character):
+    def __init__(self, name, health, level, strength):
+        super().__init__(name, health, level)
+        self.strength = strength
 
-    def start(self):
-        return f"{self.brand} {self.model} (Motorcycle) is revving!"
+    def attack(self):
+        return f"{self.name} strikes with sword! Damage: {self.strength}"
 
-    def do_wheelie(self):
-        return f"{self.brand} {self.model} is performing a wheelie!"
+    def defend(self):
+        return f"{self.name} raises shield!"
 
-    def __str__(self):
-        return f"{super().__str__()} ({self.type_motorcycle})"
+
+# 🧙 Mage
+class Mage(Character):
+    def __init__(self, name, health, level, mana):
+        super().__init__(name, health, level)
+        self.mana = mana
+
+    def attack(self):
+        return f"{self.name} casts a spell! Mana left: {self.mana}"
+
+    def cast_spell(self):
+        return f"{self.name} uses FIREBALL 🔥"

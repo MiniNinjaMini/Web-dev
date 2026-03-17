@@ -1,20 +1,15 @@
-from models import Vehicle, Car, Motorcycle
+from models import Character, Warrior, Mage
 
-def main():
-    vehicle1 = Vehicle("Generic", "Transporter", 2020)
-    car1 = Car("Toyota", "Camry", 2023, 4)
-    moto1 = Motorcycle("Yamaha", "R6", 2022, "Sport")
+# создаем объекты
+w = Warrior("Thor", 100, 5, 20)
+m = Mage("Merlin", 80, 7, 50)
 
-    vehicles = [vehicle1, car1, moto1]
+# список объектов
+characters = [w, m]
 
-    for v in vehicles:
-        print(v)  
-        print(v.start())  
-        print(v.stop())
-        print("-" * 40)
-
-    print(car1.open_trunk())
-    print(moto1.do_wheelie())
-
-if __name__ == "__main__":
-    main()
+# перебор
+for char in characters:
+    print(char)               # __str__
+    print(char.attack())      # полиморфизм
+    print(char.take_damage(10))
+    print("-" * 30)
