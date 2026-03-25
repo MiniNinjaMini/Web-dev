@@ -8,6 +8,12 @@
 
 # Node
 /node_modules
+
+# Django
+venv/
+__pycache__/
+*.pyc
+db.sqlite3
 npm-debug.log
 yarn-error.log
 
